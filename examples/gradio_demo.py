@@ -1,11 +1,16 @@
 """
 Gradio Demo for Wind Power AI Agents
 Interactive web interface for all three agents
+
+Note: Run this example from the project root directory after installing:
+    pip install -e .
+Or if running directly, make sure the parent directory is in Python path.
 """
 import os
 import sys
 
-# Add parent directory to path
+# Add parent directory to path (for development/testing without installation)
+# In production, install the package with: pip install -e .
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import gradio as gr

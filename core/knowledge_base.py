@@ -187,7 +187,12 @@ class KnowledgeBase:
     def clear(self) -> None:
         """Clear all documents from knowledge base"""
         if self.vectorstore is not None:
-            self.vectorstore.delete_collection()
+            # Delete the collection and reinitialize
+            try:
+                self.vectorstore._collection.delete()
+            except:
+                # If delete fails, try to reset by recreating
+                pass
             self._initialize_vectorstore()
 
 
